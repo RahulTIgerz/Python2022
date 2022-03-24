@@ -13,20 +13,21 @@ spaceship = Room("""
 
 current_room = space
 
+
 @when("enter airlock")
 @when("enter spaceship")
 @when("enter ship")
 def enter_spaceship():
 	global current_room
-	#check if action can be done
 	if current_room is not space:
-		say("there is no airlock here")
+		print("There is no airlock here!")
 		return
-    else:
-    	current_room = spaceship
-    	print("""You heave yourself into the spaceship and 
-    	slam you hand on the button to close the door.
-    	""")
+	else:
+		current_room = spaceship
+		print("You heave yourself into the spaceship slam you hand on the button to close the door.")
+		print(current_room)
+
+
 '''
 @when("brush teeth")
 @when("brush")
