@@ -16,4 +16,4 @@ print("Frankly, my dear, I don/'t give a damn.")
 print(" My definiton of a string is collection of characters these can be letters and numbers.")
 print("An integer a whold number , this is numbers like 1,2,3.")
 print("A float is a number which is not fully a whole number such as 1.5.")
- 
+print(543/3) 
