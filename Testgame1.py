@@ -1,6 +1,7 @@
+#Imports
 from adventurelib import * 
 
-#Rooms
+#Define Rooms
 space = Room("""
 	You are drifting in space. It feels very cold.
 	A slate-blue spaceship sits completely silently to your left, 
@@ -40,6 +41,7 @@ bridge = Room("""
 escape_pods = Room("""
 	An emergeny escape_pod""") 
 
+#Define Connections
 spaceship.east = hallway 
 spaceship.south = quaters 
 hallway.east = bridge 
@@ -49,11 +51,19 @@ cargo.east = docking
 bridge.south = escape_pods 
 quaters.east = mess_hall
 
-#variables
+#Define Items 
+
+
+#Define Bags
+
+
+#Add Items to Bags
+
+#Define any variables
 current_room = space
 	
 
-
+#Binds
 @when("enter airlock")
 @when("enter spaceship")
 @when("enter ship")
@@ -80,10 +90,13 @@ def travel(direction):
 def look():
 	global current_room 
 	if look in current_room.exits():
+		current_room = current_room.exit(direction)
+		print(f"You look {direction}.")
 		print(current_room)
-		print(current_room.exits())
 
 
+
+#Main Functions
 def main():
 	print(current_room)
 	start()
