@@ -56,6 +56,7 @@ quaters.east = mess_hall
 #Define Items 
 Item.description = "" #this adds a blank description to each item
 
+knife = Item("a dirty knife","knife")
 knife.description = "the knife has a dull sheen to it but it looks rather sharp."
 
 red_keycard = Item("a red keycard","keycard","red card","red card")
