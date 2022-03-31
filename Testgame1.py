@@ -1,5 +1,7 @@
 #Imports
 from adventurelib import * 
+Room.items = Bag()
+
 
 #Define Rooms
 space = Room("""
@@ -52,16 +54,28 @@ bridge.south = escape_pods
 quaters.east = mess_hall
 
 #Define Items 
+Item.description = "" #this adds a blank description to each item
 
+knife.description = "the knife has a dull sheen to it but it looks rather sharp."
+
+red_keycard = Item("a red keycard","keycard","red card","red card")
+red_keycard.desciprion = "Its a red keycard. It probably opens a door or a locker."
+
+oxygen_tank = Item("a oxygen tank","oygen","oxygen tank","tank")
+oxygen_tank.description = "Its a tank of oxygen. It would be very usefull out in space."
+
+water_bottle =Item("a water bottle","water","bottle","water bottle")
+water_bottle.description = "Its a water bottle. Its use is probably to be consumed."
 
 #Define Bags
-
+mess_hall.items.add(red_keycard)
+cargo.items.add(knife)
 
 #Add Items to Bags
 
 #Define any variables
 current_room = space
-	
+inventory = Bag()	
 
 #Binds
 @when("enter airlock")
@@ -96,10 +110,10 @@ def look():
 
 
 
-#Main Functions
+#Main Function
 def main():
 	print(current_room)
 	start()
 
 if __name__ == '__main__':
-	main()
+	main() 
