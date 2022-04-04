@@ -71,6 +71,8 @@ water_bottle.description = "Its a water bottle. Its use is probably to be consum
 #Define Bags
 mess_hall.items.add(red_keycard)
 cargo.items.add(knife)
+spaceship.items.add(oxygen_tank)
+hallway.items.add(water_bottle) 
 
 #Add Items to Bags
 
@@ -103,13 +105,39 @@ def travel(direction):
 
 @when("look")
 def look():
-	global current_room 
-	if look in current_room.exits():
-		current_room = current_room.exit(direction)
-		print(f"You look {direction}.")
-		print(current_room)
+	print(current_room)
+	print(f"there are exits to the {current_room.exits()}.")
+	if len(current_room.items) > 0: #if there are some items in the room 
+		print("You also see:")
+		for item in current_room.items:
+			print(item)#print out each item
 
+@when("get ITEM")
+@when("take ITEM")
+@when("pick up ITEM")
+def pickup(item):
+	if item in current_room.items:
+		t = current_room.items.take(item) #"t" (a temporary variable)
+		inventory.add(t)
+		print(f"You pick up the {item}")
+	else:
+		print(f"You don't see a {item}")
 
+@when("inventory")
+@when("show inventory")
+@when("what is in my pocket")
+def player_inventory():
+	print("You are carrying")
+	for item in inventory:
+		print(item)
+
+@when("look at ITEM")
+def look_at(item):
+	if item in inventory:
+		t = inventory.find(item)
+		print(t.description)
+	else:
+		print(f"You aren't carrying an {item}")
 
 #Main Function
 def main():
