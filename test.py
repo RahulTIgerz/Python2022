@@ -74,4 +74,32 @@ amo_left = 40
 current_gear = 2
 current_speed = "20mps"
 #Excersice 5.6
- 
+money = 200 
+hat  = 20
+top = 30
+pants = 15
+belt = 60 
+shoes = 40
+print(money)
+print("buying a hat")
+money = (money) - (hat)
+print("You now have the following amount left over")
+print(money)
+print("buying a top")
+money = (money) - (top)
+print("You now have the following amount left over")
+print(money)
+print("buying pants")
+money = (money) - (pants)
+print("You now have the following amount left over")
+print(money)
+print("buying a belt")
+money = (money) - (belt)
+print("You now have the following amount left over")
+print(money)
+print("buying shoes")
+money = (money) - (shoes)
+print("You now have the following amount left over")
+print(money)
+#Excersice 6.3
+
