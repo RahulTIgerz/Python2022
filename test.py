@@ -102,4 +102,5 @@ money = (money) - (shoes)
 print("You now have the following amount left over")
 print(money)
 #Excersice 6.3
-
+k = input("enter k")
+enter = input("enter")
