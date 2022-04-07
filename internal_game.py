@@ -5,15 +5,16 @@ Room.items = Bag()
 
 #Define Rooms
 science_class = Room("""
-	You are in a science class. You don't remember how you
-	got there or who you are but you have a feeling you have
-	 to get out of there, there is a door which is locked. 
-	 Which requires a door key.
-	""")
+You are in a science class. 
+You don't remember how you got there or who you are but you have a feeling you have to get out of there.
+There is a door which is locked. 
+\nLook for a door key.
+""")
 
 hallway_1 = Room("""
-	The hallway is dim, There is another class up ahead.
+	The hallway is dim, There is another class to the east.
 	There might be something useful hidden in a corner.
+	\n You should look for a key or some sort 
 	""")
 
 english_class = Room("""
@@ -57,17 +58,17 @@ start_of_stairs.north = boss_room
 #Define Items
 Item.description = "" #This adds a blank description to each item
 
-door_key = Item("door key","key")
-door_key.description = ("The door key is rusty, try it out on the science class door ")
+door_key = Item("door key","door")
+door_key.description = ("The door key is black, try it out on the science class door ")
 
-book_key = Item("book key", "book", "key")
-book_key.description = ("The key is silver, maybe it could be used in the secret passage")
+book_key = Item("book key", "book",)
+book_key.description = ("The key is silver and rusty, maybe it could be used in the secret passage")
 
-vent_key = Item("vent key", "vent", "key")
+vent_key = Item("vent key", "vent",)
 vent_key.description = ("The vent key is white, it would be used to get out of a vent ")
 
-katana 
-katana.description = ("")
+katana = Item("katana","sword","weapon","blade")
+katana.description = ("An authentic japanese katana, when unsheaved it is very sharp. It has a mysterious dark alluring aura ")
 #Define Bags
 
 
@@ -81,10 +82,10 @@ current_room = science_class
 door_opened = False
 
 #Binds (eg "@when(look"))
-@when("use key")
+@when("use door key")
 def open_door():
 	if inventory.find(door_key) and current_room == science_class:
-		print("You put key...")
+		print("You put the door key inside the door hole and twist it, you hear a click")
 		global door_opened 
 		door_opened = True
 	else:
