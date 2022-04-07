@@ -8,7 +8,7 @@ science_class = Room("""
 	You are in a science class. You don't remember how you
 	got there or who you are but you have a feeling you have
 	 to get out of there, there is a door which is locked. 
-	 Which requires a key.
+	 Which requires a door key.
 	""")
 
 hallway_1 = Room("""
@@ -48,13 +48,26 @@ boss_room = Room("""
 
 #Define Connections
 science_class.east = hallway_1
-
+hallway_1.east = english_class
+science_class.west = hallway_2
+hallway_2.west = start_of_stairs
+start_of_stairs.north = boss_room   
 
 
 #Define Items
+Item.description = "" #This adds a blank description to each item
 
+door_key = Item("door key","key")
+door_key.description = ("The door key is rusty, try it out on the science class door ")
 
+book_key = Item("book key", "book", "key")
+book_key.description = ("The key is silver, maybe it could be used in the secret passage")
 
+vent_key = Item("vent key", "vent", "key")
+vent_key.description = ("The vent key is white, it would be used to get out of a vent ")
+
+katana 
+katana.description = ("")
 #Define Bags
 
 
@@ -65,9 +78,28 @@ science_class.east = hallway_1
 
 #Define any variables
 current_room = science_class
-
+door_opened = False
 
 #Binds (eg "@when(look"))
+@when("use key")
+def open_door():
+	if inventory.find(door_key) and current_room == science_class:
+		print("You put key...")
+		global door_opened 
+		door_opened = True
+	else:
+		print("door is locked")
+
+@when("open door")
+def exit_startingroom():
+	global current_room 
+if door_opened == True and current_room == science_class:
+	print("You go to next room")
+	current_room = hallway_1
+else:
+	print("door is locked")
+	 
+
 
 
 
