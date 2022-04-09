@@ -1,5 +1,5 @@
 #Excercise 4.1
-print("Hello world")
+'''print("Hello world")
 print("Rahul Rao Nilapu")
 print("Mrs White")
 print("Kings High School")
@@ -102,7 +102,7 @@ money = (money) - (shoes)
 print("You now have the following amount left over")
 print(money)
 #Excersice 6.3
-"""input("Enter hi, then press enter")
+input("Enter hi, then press enter")
 input("Type your name, then press enter")
 input("Type your age, then press enter")
 player_name = input("Type in your name")
@@ -120,7 +120,6 @@ print("I love, ", fav_movie, "too")
 print("I like " + fav_movie + " and " + fav_book +  " so much")
 print(f"Do you like {an_verb}")
 print(f"It is nice to meet you {player_name}")
-""" # i crossed it out so i could do next bit (remember to remove the """ when i finnsish the excersise)
 player_age = int(input("What is your age"))
 player_age += 10
 print(player_age)
@@ -150,3 +149,31 @@ book = input("Can you give me a name of a book")
 print(book)
 num = int(input("Could i have a number"))
 str(print(book * num)) 
+'''
+#Exercises 7.5
+ice_cream = int(input("How many ice creams do you need"))
+if ice_cream > 0 and ice_cream <= 20:
+	print("Ok I will go get it")
+elif ice_cream < 20:
+	print("sorry there isn't enough ice cream")
+
+far_travel = int(input("How far do you need to travel (just a number)"))
+if far_travel > 200:
+	print("You might need to fill up petral")
+
+age = int(input("How old are you"))
+if age >= 18:
+	print("You are now considered as an adult")
+elif age < 18: 
+	print("You are a minor")
+
+fav_movie = input("Whats you favourite movie")
+if fav_movie == ("Lord of the Rings"):
+	print("You have excellent tastes")
+else: print("It is cleary a superior film")
+
+darth_plagueis_the_wise = input("Have you heard the tale of Darth Plagueis the Wise")
+if darth_plagueis_the_wise.lower() == "no":
+	print("Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It’s not a story the Jedi would tell you. It’s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.")
+else: print("You must be a fan")
+
