@@ -1,4 +1,4 @@
-"""#Excercise 4.1 
+#Excercise 4.1 
 print("Hello world")
 print("Rahul Rao Nilapu")
 print("Mrs White")
@@ -322,7 +322,7 @@ while topping_count <6:
 		
 
 
-"""#Excercise 9.3  
+#Excercise 9.3  
 increments = 0
 while increments <100:
 	increments += 2
