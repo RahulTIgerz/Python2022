@@ -58,13 +58,13 @@ start_of_stairs.north = boss_room
 #Define Items
 Item.description = "" #This adds a blank description to each item
 
-door_key = Item("door key","door")
+door_key = Item("door key", "key" ,"door")
 door_key.description = ("The door key is black, try it out on the science class door ")
 
-book_key = Item("book key", "book",)
+book_key = Item("book key","key", "book")
 book_key.description = ("The key is silver and rusty, maybe it could be used in the secret passage")
 
-vent_key = Item("vent key", "vent",)
+vent_key = Item("vent key", "vent","key")
 vent_key.description = ("The vent key is white, it would be used to get out of a vent ")
 
 katana = Item("katana","sword","weapon","blade")
