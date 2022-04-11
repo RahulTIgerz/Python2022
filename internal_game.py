@@ -69,8 +69,12 @@ vent_key.description = ("The vent key is white, it would be used to get out of a
 
 katana = Item("katana","sword","weapon","blade")
 katana.description = ("An authentic japanese katana, when unsheaved it is very sharp. It has a mysterious dark alluring aura ")
-#Define Bags
 
+#Define Bags
+science_class.items.add(door_key)
+english_class.items.add(book_key)
+secret_passage.items.add(vent_key)
+boss_room.items.add(katana)
 
 
 #Add Items to Bags
@@ -79,13 +83,38 @@ katana.description = ("An authentic japanese katana, when unsheaved it is very s
 
 #Define any variables
 current_room = science_class
+inventory = Bag()
 door_opened = False
 
 #Binds (eg "@when(look"))
+@when("look")
+def look():
+	print(current_room)
+	print(f"there are exits to the {current_room.exits()}.")
+	if len(current_room.items) > 0:
+		print("You see the:")
+		for item in current_room.items:
+			print(item)
+
+
+@when("get ITEM")
+@when("take ITEM")
+@when("pick up ITEM")
+def pickup(item):
+	if item in current_room.items:
+		t = current_room.items.take(item) #"t" (a temporary variable)
+		inventory.add(t)
+		print(f"You pick up the {item}")
+	else:
+		print(f"You don't see the {item}")
+
+
 @when("use door key")
+@when("use book key")
+@when("use vent key")
 def open_door():
 	if inventory.find(door_key) and current_room == science_class:
-		print("You put the door key inside the door hole and twist it, you hear a click")
+		print("You put the key inside the key hole and twist it, you hear a click")
 		global door_opened 
 		door_opened = True
 	else:
