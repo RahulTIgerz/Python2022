@@ -87,6 +87,15 @@ inventory = Bag()
 door_opened = False
 
 #Binds (eg "@when(look"))
+
+@when ("go DIRECTION")
+def travel(direction):
+	global current_room
+	if direction in current_room.exits():
+		current_room = current_room.exit(direction)
+		print(f"You go {direction}.")
+		print(current_room)
+
 @when("look")
 def look():
 	print(current_room)
@@ -110,10 +119,9 @@ def pickup(item):
 
 
 @when("use door key")
-@when("use book key")
-@when("use vent key")
 def open_door():
-	if inventory.find(door_key) and current_room == science_class:
+	global current_room
+	if inventory.find("door key") and current_room == science_class:
 		print("You put the key inside the key hole and twist it, you hear a click")
 		global door_opened 
 		door_opened = True
@@ -123,13 +131,27 @@ def open_door():
 @when("open door")
 def exit_startingroom():
 	global current_room 
-if door_opened == True and current_room == science_class:
-	print("You go to next room")
-	current_room = hallway_1
-else:
-	print("door is locked")
+	if door_opened == True and current_room == science_class:
+		print("You go to next room")
+		current_room = hallway_1
+	else:
+		print("door is locked")
 	 
+@when("inventory")
+@when("show inventory")
+@when("what is in my pocket")
+def player_inventory():
+	print("You are carrying")
+	for item in inventory:
+		print(item)
 
+@when("look at ITEM")
+def look_at(item):
+	if item in inventory:
+		t = inventory.find(item)
+		print(t.description)
+	else:
+		print(f"You aren't carrying an {item}")
 
 
 
@@ -142,5 +164,5 @@ if __name__ == '__main__':
 	main()
 
 #add some code comments to get a higher grade. (What is the function doing)
-#dont needa right it on everyline but wright it really breifly on what it is doing.
+#dont needa wright it on everyline but wright it really breifly on what it is doing.
 #do different varietys of errors not just the same. 
