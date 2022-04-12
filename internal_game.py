@@ -12,40 +12,41 @@ There is a door which is locked.
 """)
 
 hallway_1 = Room("""
-	The hallway is dim, There is another class to the east.
-	There might be something useful hidden in a corner.
-	\n You should look for a key or some sort 
-	""")
+The hallway is dim, There is another class to the east.
+There might be something useful hidden in a corner.
+\n You should look for a key or some sort 
+""")
 
 english_class = Room("""
-	The class has lots of books shelfs full with books, 
-	there is a secret passage but you need a key.
-	The key might be inside the tilted book.  
-	""")
+The class has lots of books shelfs full with books, 
+there is a secret passage but you need a key.
+The key might be inside the tilted book.  
+""")
 
 secret_passage = Room("""
-	The secret passage is really dark, you see that there is a girl below 
-	she is laughing uncontrollably. Now you realise you need to get back.
-	There is a class room down ahead, drop down from the vent.
-	Did you pickup a vent key in the hallway?, it might be back the hallway.
-	""")
+The secret passage is really dark, you see that there is a girl below 
+she is laughing uncontrollably. Now you realise you need to get back.
+There is a class room down ahead, drop down from the vent.
+Did you pickup a vent key in the hallway?, it might be back the hallway.
+""")
 
 hallway_2 = Room("""
-	This hallway looks exactly the same as the one earlier. However you look 
-	behind and see that the girl is chasing you, you need to go west to the stairs 
-	to hide so she can't get to you.
-	""")
+This hallway looks exactly the same as the one earlier. However you look 
+behind and see that the girl is chasing you, you need to go west to the stairs 
+to hide so she can't get to you.
+""")
 
 start_of_stairs = Room("""
-	You are hiding behind the starting of the stairs, she has gone up to look
-	for u. You feel a sharp katana, with the katana you may have the chance to defeat her
-	and go back home. Go north and fight her, make sure you don't forget the katana
-	""") 
+You are hiding behind the starting of the stairs, she has gone up to look
+for u. You feel a sharp katana, with the katana you may have the chance to defeat her
+and go back home. Go north and fight her, make sure you don't forget the katana
+""") 
+
 boss_room = Room("""
-	You see her up next to a door which may be the way back, she is holding a
-	bloody knife. She sees you too and you know that she isnt going down 
-	without a slash. 
-	""")
+You see her up next to a door which may be the way back, she is holding a
+bloody knife. She sees you too and you know that she isnt going down 
+without a slash. 
+""")
 
 #Define Connections
 science_class.east = hallway_1
@@ -117,16 +118,40 @@ def pickup(item):
 	else:
 		print(f"You don't see the {item}")
 
-
+@when("use key")
 @when("use door key")
 def open_door():
 	global current_room
 	if inventory.find("door key") and current_room == science_class:
-		print("You put the key inside the key hole and twist it, you hear a click")
+		print("You put the key inside the door hole and twist it, you hear a click")
 		global door_opened 
 		door_opened = True
 	else:
 		print("door is locked")
+
+
+@when("use key")
+@when("use book key")
+def open_door():
+	global current_room
+	if inventory.find("door key") and current_room == english_class:
+		print("")
+		global door_opened 
+		door_opened = True
+	else:
+		print("door is locked")
+
+@when("use key")
+@when("use vent key")
+def open_door():
+	global current_room
+	if inventory.find("door key") and current_room == secret_passage:
+		print("")
+		global door_opened 
+		door_opened = True
+	else:
+		print("door is locked")
+
 
 @when("open door")
 def exit_startingroom():
@@ -134,6 +159,7 @@ def exit_startingroom():
 	if door_opened == True and current_room == science_class:
 		print("You go to next room")
 		current_room = hallway_1
+		print(current_room)
 	else:
 		print("door is locked")
 	 
