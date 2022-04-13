@@ -288,49 +288,28 @@ print("The lenght of this list is 25 numbers long ")
 comman_verbs = ["run"," jump","read","roll"]
 comman_verbs.sort()
 print(comman_verbs)
+"""
 
-
-"""#Exercise 9.2 
-print("Hi, welcome to Ice Crea, Maker")
-order_complete = False
+#Exercise 9.2 
+print("Hi, welcome to Ice Cream Maker")
+order_complete = False 
 toppings_list = []
-
-toppings_available = ["vanila","strawberry","chocolate","sprinkles","nuts","raisens","chocolate sauce","flake","m&ms"]
-print("vanila\nstrawberry\nchocolate\nsprinkles\nnuts\nraisens\nchocolate sauce\nflake\nm&ms")
-topping = input("Please choose your topping from the list")
-if topping.lower() == toppings_available:
-	print("Sweet")
-else:
-	print("That is not an available topping")
-	print(toppings_available)
-
-
+topping_count = 0
 
 while order_complete == False:
-	topping = input("What topping? - push enter to finish")
+	topping = input("What topping? - push to enter")
 	if topping == "":
-		print("Order Done")
-		order_complete = True 
+		print("Order done")
+		order_complete = True
 	elif topping in toppings_list:
 		print("You already have that topping")
 	else:
 		print("Great, adding it to the list")
+		toppings_list.append(topping)
+
+				
 print("Here are your toppings")
+print(toppings_list.join(","))
 
-topping_count = 0
-while topping_count <6:
-		topping_count += 1
-		
+#Excercise 9.3  
 
-
-# #Excercise 9.3"""  
-# increments = 0
-# while increments <100:
-# 	increments += 2
-# print(increments)	
-
-# blast_off = 10
-# while blast_off 10:
-# 	blast_off 
-
-# """	
