@@ -99,7 +99,6 @@ def travel(direction):
 
 @when("look")
 def look():
-	print(current_room)
 	print(f"there are exits to the {current_room.exits()}.")
 	if len(current_room.items) > 0:
 		print("You see the:")
@@ -191,4 +190,5 @@ if __name__ == '__main__':
 
 #add some code comments to get a higher grade. (What is the function doing)
 #dont needa wright it on everyline but wright it really breifly on what it is doing.
-#do different varietys of errors not just the same. 
+#do different varietys of errors not just the same.
+#add loops(while,for) 
