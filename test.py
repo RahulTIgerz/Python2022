@@ -302,6 +302,7 @@ if topping.lower() == toppings_available:
 	print("Sweet")
 else:
 	print("That is not an available topping")
+	print(toppings_available)
 
 
 
@@ -322,14 +323,14 @@ while topping_count <6:
 		
 
 
-"""#Excercise 9.3  
-increments = 0
-while increments <100:
-	increments += 2
-print(increments)	
+# #Excercise 9.3"""  
+# increments = 0
+# while increments <100:
+# 	increments += 2
+# print(increments)	
 
-blast_off = 10
-while blast_off 10:
-	blast_off 
+# blast_off = 10
+# while blast_off 10:
+# 	blast_off 
 
-"""	
+# """	
