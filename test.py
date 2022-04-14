@@ -323,28 +323,77 @@ print("Here are your toppings")
 
 print(toppings_list.join(","))
 
-"""#Excercise 9.3  
+#Excercise 9.3  
 print("Hi, welcome to Ice Cream Maker")
 order_complete = False
 topping_count = 0
 toppings_list = []
 toppings_available = ["vanila" , "strawberry" , "chocolate" , "sprinkles" , "nuts" , "raisens" , "chocolate sauce" , "flake" , "m&ms"]
+print("Here are the toppings available")
+print(", ".join(toppings_available))
 
 while order_complete == False:
 	topping = input("What topping? - push enter to finish")
+	topping = topping.lower()
 	if topping == "":
 		print("Order Done")
 		order_complete = True
+	elif not topping in toppings_available:
+		print("We do not have that topping available")
+
+
 	elif topping in toppings_list:
 		print("You already have that topping")
 	else:
 		print("Great, adding it to the list")
-
-while order_complete == False:
-	if topping in toppings_available:
-	print("Great, adding to list")
-	 
+		toppings_list.append(topping)
+		topping_count += 1
+		if topping_count >= 6:
+			order_complete = True
 
 
 print("Here are your toppings") 
-print(toppings_list.join("\n"))			 
+print("\n".join(toppings_list))			 
+#I had to move it arround because it wasn't working
+"""
+#Excercieses 9.3
+number = 0
+while number <= 100:
+	print(number)
+	number += 2
+
+blast_off = 10
+while blast_off >0:
+	print(blast_off)
+	blast_off -=1
+print("Blast Off")
+
+when = "Rip Bozo"
+while when != "when":
+	when = input("Tell me when to stop")
+	
+"""guessing_question = ("What is 1 + 1?")
+while guessing_question != 2:
+	guessing_question = int(input("What is 1 + 1?"))
+print("correct")
+"""
+#Rewright
+guess_number = 24
+guesses = 7
+guess = int(input("What is the number im thinking of?"))
+if guess  == guess_number:
+		print("Correct")
+	
+else:
+	print("Wrong, Try again")
+	guesses -=1
+
+shape_sides = int(input("How many sides on the shape"))
+length = int(input("What is the length of the side"))
+lengths = shape_sides * int(input("what is the length of the side \n"))
+perimeter = length + length 
+print(perimeter)
+
+
+
+
