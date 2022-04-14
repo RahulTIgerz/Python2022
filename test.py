@@ -291,25 +291,53 @@ print(comman_verbs)
 """
 
 #Exercise 9.2 
-print("Hi, welcome to Ice Cream Maker")
+"""print("Hi, welcome to Ice Cream Maker")
 order_complete = False 
 toppings_list = []
-topping_count = 0
+topping_count = 0	
+toppings_available = ["vanilla", "strawberry", "chocolate", "sprinkles", "nuts", "raisins", "chocolate", "sauce", "flake", "m&ms"]
 
-while order_complete == False:
+# if topping_count <6:
+# 	order_complete == False
+
+while topping_count <= 6:
+	# order_complete == False
 	topping = input("What topping? - push to enter")
 	if topping == "":
 		print("Order done")
+		# order_complete = True
+		topping_count =7
+	elif topping in toppings_available:
+		toppings_list.append(topping)
+		print("Topping is now added")
+		topping_count = topping_count + 1
+		print(topping_count)
+
+	else:
+		print("\nPlease enter an available topping: \n")
+		print("\nHere is what you have so far \n")
+		print(toppings_list)
+
+
+print("Here are your toppings")
+
+print(toppings_list.join(","))
+
+"""#Excercise 9.3  
+print("Hi, welcome to Ice Cream Maker")
+order_complete = False
+topping_count = 0
+toppings_list = []
+
+while order_complete == False:
+	topping = input("What topping? - push enter to finish")
+	if topping == "":
+		print(Order Done)
 		order_complete = True
 	elif topping in toppings_list:
 		print("You already have that topping")
 	else:
 		print("Great, adding it to the list")
-		toppings_list.append(topping)
 
-				
 print("Here are your toppings")
-print(toppings_list.join(","))
-
-#Excercise 9.3  
-
+print(toppings_list.join("\n"))			 
