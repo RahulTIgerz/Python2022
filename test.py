@@ -388,6 +388,7 @@ else:
 	print("Wrong, Try again")
 	guesses -=1
 
+#could wright this out much better
 shape_sides = int(input("How many sides on the shape"))
 length = int(input("What is the length of the side"))
 lengths = shape_sides * int(input("what is the length of the side \n"))
