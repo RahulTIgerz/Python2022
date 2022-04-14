@@ -328,16 +328,23 @@ print("Hi, welcome to Ice Cream Maker")
 order_complete = False
 topping_count = 0
 toppings_list = []
+toppings_available = ["vanila" , "strawberry" , "chocolate" , "sprinkles" , "nuts" , "raisens" , "chocolate sauce" , "flake" , "m&ms"]
 
 while order_complete == False:
 	topping = input("What topping? - push enter to finish")
 	if topping == "":
-		print(Order Done)
+		print("Order Done")
 		order_complete = True
 	elif topping in toppings_list:
 		print("You already have that topping")
 	else:
 		print("Great, adding it to the list")
 
-print("Here are your toppings")
+while order_complete == False:
+	if topping in toppings_available:
+	print("Great, adding to list")
+	 
+
+
+print("Here are your toppings") 
 print(toppings_list.join("\n"))			 
