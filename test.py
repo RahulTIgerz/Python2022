@@ -1,4 +1,4 @@
-"""#Excercise 4.1 
+#Excercise 4.1 
 print("Hello world")
 print("Rahul Rao Nilapu")
 print("Mrs White")
@@ -288,7 +288,7 @@ print("The lenght of this list is 25 numbers long ")
 comman_verbs = ["run"," jump","read","roll"]
 comman_verbs.sort()
 print(comman_verbs)
-"""
+
 
 #Exercise 9.2 
 """print("Hi, welcome to Ice Cream Maker")
@@ -322,7 +322,7 @@ while topping_count <= 6:
 print("Here are your toppings")
 
 print(toppings_list.join(","))
-
+"""
 #Excercise 9.3  
 print("Hi, welcome to Ice Cream Maker")
 order_complete = False
@@ -355,7 +355,7 @@ while order_complete == False:
 print("Here are your toppings") 
 print("\n".join(toppings_list))			 
 #I had to move it arround because it wasn't working
-"""
+
 #Excercieses 9.3
 number = 0
 while number <= 100:
