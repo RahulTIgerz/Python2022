@@ -1,4 +1,3 @@
-@@ -1,179 +0,0 @@
 #Imports
 from adventurelib import *
 Room.items = Bag()
@@ -23,6 +22,11 @@ secret_passage = Room("""
 
 """)
 
+science_class_midgame = Room("""
+
+\nLook for a door key.
+""")
+
 hallway_2 = Room("""
 
 """)
@@ -35,11 +39,9 @@ boss_room = Room("""
 
 """)
 
-#Define Connections
+#Define Connections - Add some more
 science_class.east = hallway_1
-hallway_1.east = english_class
-science_class.west = hallway_2
-hallway_2.west = start_of_stairs
+
 start_of_stairs.north = boss_room   
 
 
@@ -58,9 +60,9 @@ vent_key.description = ("The vent key is white, it would be used to get out of a
 katana = Item("katana","sword","weapon","blade")
 katana.description = ("An authentic japanese katana, when unsheaved it is very sharp. It has a mysterious dark alluring aura ")
 
-#Define Bags
+#Define Bags - Do it in order
 science_class.items.add(door_key)
-#Do it in order
+
 boss_room.items.add(katana)
 
 
@@ -103,7 +105,7 @@ def pickup(item):
 	else:
 		print(f"You don't see the {item}")
 
-@when("use key")
+
 @when("use door key")
 def open_door():
 	global current_room
@@ -115,7 +117,6 @@ def open_door():
 		print("door is locked")
 
 
-@when("use key")
 @when("use book key")
 def open_door():
 	global current_room
@@ -126,7 +127,6 @@ def open_door():
 	else:
 		print("door is locked")
 
-@when("use key")
 @when("use vent key")
 def open_door():
 	global current_room
