@@ -1,3 +1,4 @@
+
 #Imports
 from adventurelib import *
 Room.items = Bag()
@@ -77,17 +78,9 @@ door_opened = False
 
 #Binds (eg "@when(look"))
 
-@when ("go DIRECTION")
-def travel(direction):
-	global current_room
-	if direction in current_room.exits():
-		current_room = current_room.exit(direction)
-		print(f"You go {direction}.")
-		print(current_room)
 
 @when("look")
 def look():
-	print(f"there are exits to the {current_room.exits()}.")
 	if len(current_room.items) > 0:
 		print("You see the:")
 		for item in current_room.items:
@@ -111,8 +104,10 @@ def open_door():
 	global current_room
 	if inventory.find("door key") and current_room == science_class:
 		print("You put the key inside the door hole and twist it, you hear a click")
+		print(current_room.exits())
 		global door_opened 
 		door_opened = True
+
 	else:
 		print("door is locked")
 
@@ -164,7 +159,13 @@ def look_at(item):
 	else:
 		print(f"You aren't carrying an {item}")
 
-
+@when ("go DIRECTION") #Work on
+def travel(direction):
+	global current_room
+	if door_opened == False:
+		current_room = current_room.exit(direction)
+		print(f"You go {direction}.")
+		print(current_room)
 
 #Main Function 
 def main():
