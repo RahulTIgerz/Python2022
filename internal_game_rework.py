@@ -42,9 +42,11 @@ boss_room = Room("""
 
 #Define Connections - Add some more
 science_class.east = hallway_1
-
-start_of_stairs.north = boss_room   
-
+hallway_1.east = english_class
+english_class.south = secret_passage
+secret_passage.south = science_class_midgame 
+science_class_midgame.west = start_of_stairs
+start_of_stairs.north = boss_room
 
 #Define Items
 Item.description = "" #This adds a blank description to each item
@@ -63,7 +65,8 @@ katana.description = ("An authentic japanese katana, when unsheaved it is very s
 
 #Define Bags - Do it in order
 science_class.items.add(door_key)
-
+hallway_1.items.add(vent_key)
+english_class.items.add(book_key)
 boss_room.items.add(katana)
 
 
