@@ -9,7 +9,7 @@ science_class = Room("""
 The first room, The science class.
 The room is very dark and gloomy however 
 You see there is a Black door.
-\nLook for a door key and use it,\n then open to see where it takes you.
+\nLook for a door key and take it,\n then use it, open door to see where it takes you. \n (You can say door and door key ) .
 """)
 
 hallway_1 = Room("""
@@ -55,7 +55,9 @@ You feel something poking you on your back.
 """) 
 
 boss_room = Room("""
-
+The Final Room, The Boss Room.
+You See her next to a Door with a Mystery Sign (?)
+If you picked up the sword you can unleash a suprise Slash. 
 """)
 
 #Define Connections 
@@ -104,6 +106,7 @@ door_opened = False
 #@Create a hide function which is a while loop that says Come on hide everytime till they say hide.
 
 @when("look")
+@when("look for")
 def look():
 	if len(current_room.items) > 0:
 		print("You see the:")
@@ -139,8 +142,8 @@ def open_door():
 @when("use book key")
 def open_door():
 	global current_room
-	if inventory.find("door key") and current_room == english_class:
-		print("")
+	if inventory.find("book key") and current_room == english_class:
+		print("You put the key inside the door hole and twist it, you hear a click")
 		global door_opened 
 		door_opened = True
 	else:
@@ -149,8 +152,8 @@ def open_door():
 @when("use vent key")
 def open_door():
 	global current_room
-	if inventory.find("door key") and current_room == secret_passage:
-		print("")
+	if inventory.find("vent key") and current_room == secret_passage:
+		print("You put the key inside the door hole and twist it, you hear a click")
 		global door_opened 
 		door_opened = True
 	else:
