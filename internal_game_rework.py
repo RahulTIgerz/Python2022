@@ -22,12 +22,13 @@ english_class = Room("""
 The detention room, The english class.
 The room is creepily quiet that it gives you chills up your spine.
 There is a partially covered secret passage that requires a key.
-\n Do you have a book key on you,\n I heard it was in the hallway.\n you should probably look for another key.   
+\n Do you have a book key on you,\n I heard it was in the hallway.\n you should probably look for another key in this room.   
 """)
 
 secret_passage = Room("""
 The spy vent, The secret passage.
-Over here you can see everything underneath, You see a girl laughing crazily.
+Over here you can see everything underneath, 
+You see a girl laughing crazily.
 You then instantly get the feeling shes bad news and you need to escape.
 There is a vent maybe that leads to the way out ?
 \n Did you get a vent key in english class, \n If so use it on the vent.
@@ -57,7 +58,7 @@ You feel something poking you on your back.
 boss_room = Room("""
 The Final Room, The Boss Room.
 You See her next to a Door with a Mystery Sign (?)
-If you picked up the sword you can unleash a suprise Slash. 
+If you picked up the sword you can unleash a suprise slash. 
 """)
 
 #Define Connections 
@@ -104,7 +105,26 @@ door_opened = False
 #Binds (eg "@when(look"))
 #@Add/ Addapt your binds inlcuding some loops.
 #@Create a hide function which is a while loop that says Come on hide everytime till they say hide.
+#@Create a slash function which slashes the enemy to a cutscene
 
+@when("slash")
+@when("suprise slash")
+@when("attack")
+@when("suprise")
+@when("suprise attack")
+@when("kill")
+@when("sneak attack")
+@when("suprise kill")
+@when("use sword")
+def suprise_slash():
+	global current_room
+	if inventory.find("katana") and current_room == boss_room:
+		print("You swiftly slash her from behind splashing her blood everywhere,\n she falls to the ground saying \n 'You , You have defeated me. You have won this time but this won't be the last of me '")
+		player_name = input("'*puff *puff could you do me a favour and tell me your name'")
+		
+
+
+ 
 @when("look")
 @when("look for")
 def look():
@@ -130,7 +150,7 @@ def pickup(item):
 def open_door():
 	global current_room
 	if inventory.find("door key") and current_room == science_class:
-		print("You put the key inside the door hole and twist it, you hear a click")
+		print("You put the key inside the door hole and twist it,\n you hear a click")
 		print(current_room.exits())
 		global door_opened 
 		door_opened = True
@@ -143,7 +163,7 @@ def open_door():
 def open_door():
 	global current_room
 	if inventory.find("book key") and current_room == english_class:
-		print("You put the key inside the door hole and twist it, you hear a click")
+		print("You put the key inside the partially covered key hole and twist it,\n you hear a click")
 		global door_opened 
 		door_opened = True
 	else:
@@ -153,7 +173,7 @@ def open_door():
 def open_door():
 	global current_room
 	if inventory.find("vent key") and current_room == secret_passage:
-		print("You put the key inside the door hole and twist it, you hear a click")
+		print("You put the key inside the vent exit key hole and twist it,\n you hear a click")
 		global door_opened 
 		door_opened = True
 	else:
