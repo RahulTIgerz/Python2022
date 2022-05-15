@@ -224,7 +224,13 @@ def main():
 if __name__ == '__main__':
 	main()
 
-#@add some code comments to get a higher grade. (What is the function doing)
+
+#! I need to run this in school computer then, 
+#! I upload completed game to Classroom as a Python file then,
+#! Work a bit more on about my Evidence of testing ( Subheadings)	
+#! Upload recording of me playing
+
+#@Could add a function which takes you to any room you have been too, this could be hard. (Ask Mrs White about this prior she can help you out)
+#@add some code comments to get a higher grade. (What is the function doing), if needed add some more.
 #@dont needa wright it on everyline but wright it really breifly on what it is doing.
 #@do different varietys of errors not just the same. 
-#@Could add a function which takes you to any room you have been too, this could be hard. (Ask Mrs White about this prior she can help you out)
