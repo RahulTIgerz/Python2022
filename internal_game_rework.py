@@ -1,10 +1,10 @@
  
 #Imports
-from adventurelib import *
+from adventurelib import * #This saying that the game is gonna run by adventurelib
 Room.items = Bag()
 
 
-#Define Rooms
+#Define Rooms - What the Rooms in my game are 
 science_class = Room("""	
 The first room, The science class.
 The room is very dark and gloomy however 
@@ -17,6 +17,7 @@ The mysterious hallway with Blinkering Lights.
 There is an unlocked door stained with blood up ahead.  
 \n You should look for a key or some sort,\n it may be useful to you soon. 
 """)
+#\n means to make a new line, it is an efficiant way to make a new line
 
 english_class = Room("""
 The detention room, The english class.
@@ -47,21 +48,24 @@ Shoot you here the alarm go off, quick
 There is a gap underneath the stairs up ahead 
 \nGo east towards the stairs and hide.
 """)
+#I have a while loop for this which keeps telling them to hide
 
 start_of_stairs = Room("""
 She arrives into the hallway and does not see you, 
 She then goes up the stairs armed with a knife.
 You feel something poking you on your back. 
 \n Look for what it is,\n and maybe it could help you defeat her.\n Go upstairs (North) to face her. 
-""") 
+""")  
 
 boss_room = Room("""
 The Final Room, The Boss Room.
 You See her next to a Door with a Mystery Sign (?)
 If you picked up the sword you can unleash a suprise slash. 
 """)
+#You can't break the game and defeat her without a sword, because she won't notice you until you strike her down. You will need to go back and grab the sword.
 
-#Define Connections 
+
+#Define Connections - The directions to the rooms (north, east , south , west)
 science_class.east = hallway_1
 hallway_1.east = english_class
 english_class.south = secret_passage
@@ -71,7 +75,7 @@ hallway_2.east = start_of_stairs
 start_of_stairs.north = boss_room
 
 #Define Items 
-#@Make it that there are multiple options the user can call out. Also make sure u add some more description. 
+#In the game if you have an item you can still look at it, this will tell you the description
 Item.description = "" #This adds a blank description to each item
 
 door_key = Item("door key", "door")
@@ -86,26 +90,22 @@ vent_key.description = ("The vent key is white, it would be used to get out of a
 katana = Item("katana","sword","weapon","blade")
 katana.description = ("An authentic japanese katana, when unsheaved it is very sharp. It has a mysterious dark alluring aura ")
 
-#Define Bags - Do it in order
+#Define Bags - In order, adding them to rooms
 science_class.items.add(door_key)
 hallway_1.items.add(book_key)
 english_class.items.add(vent_key)
 boss_room.items.add(katana)
 
-
-#Add Items to Bags
-
-
-
-#Define any variables
+#Define any variables 
 current_room = science_class
 inventory = Bag()
 door_opened = False
 
-#Binds (eg "@when(look"))
-#@Add/ Addapt your binds inlcuding some loops.
-#@Create a hide function which is a while loop that says Come on hide everytime till they say hide.
-#@Create a slash function which slashes the enemy to a cutscene
+#Binds (eg "@when(look")) 
+
+while hide != "hide" or "hide behind stairs":
+	hide = input("Hurry up , hide behind the stairs")
+
 
 @when("slash")
 @when("suprise slash")
@@ -121,7 +121,8 @@ def suprise_slash():
 	if inventory.find("katana") and current_room == boss_room:
 		print("You swiftly slash her from behind splashing her blood everywhere,\n she falls to the ground saying \n 'You , You have defeated me. You have won this time but this won't be the last of me '")
 		player_name = input("'*puff *puff could you do me a favour and tell me your name'")
-		
+		print(f"'Well done {player_name} but I won't let you win next time'")
+		print("You then walk towards the mysterious door (?) and open it \n the door blinds you with light however you continue to walk forwards. \n You have now reached the ending of the game, much more could await you.")
 
 
  
@@ -197,6 +198,7 @@ def player_inventory():
 	print("You are carrying")
 	for item in inventory:
 		print(item)
+		
 
 @when("look at ITEM")
 def look_at(item):
@@ -222,7 +224,7 @@ def main():
 if __name__ == '__main__':
 	main()
 
-#add some code comments to get a higher grade. (What is the function doing)
-#dont needa wright it on everyline but wright it really breifly on what it is doing.
-#do different varietys of errors not just the same.
-#add loops(while,for) 
+#@add some code comments to get a higher grade. (What is the function doing)
+#@dont needa wright it on everyline but wright it really breifly on what it is doing.
+#@do different varietys of errors not just the same. 
+#@Could add a function which takes you to any room you have been too, this could be hard. (Ask Mrs White about this prior she can help you out)
