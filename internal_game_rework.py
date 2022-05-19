@@ -202,7 +202,7 @@ def exit_startingroom():
 	else:print(current_room.exits())
 
 #This function opens a door, and if the door is opend and your in the right room it sends you to the next room while telling you what room you have went to.
-@when("open secret passage door") or ("open vent")
+@when("open vent")
 def exit_startingroom():
 	global current_room 
 	if door_opened == True and current_room == secret_passage:
